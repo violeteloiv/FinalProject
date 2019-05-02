@@ -2,10 +2,24 @@
 
   font-family: monospace; courier;
 
+  padding: 20px;
+
+}
+
+body {
+
+  border: 4px double #000;
+
 }
 
 h1.mainHeader {
 
-  font-size: 100%
+  background-color: #bbbbbb;
+
+}
+
+h2.secondHeader {
+
+  border: 4px double #000;
 
 }
