@@ -1,5 +1,6 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+import pprint
 
 scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
@@ -8,6 +9,6 @@ client = gspread.authorize(creds)
 
 sheet = client.open("Data").sheet1
 
+pp = pprint.PrettyPrinter()
 data = sheet.get_all_records()
-
-print(data)
+pp.pprint(data)
