@@ -1,5 +1,11 @@
-h1.mainHeader {
+* {
 
   font-family: monospace; courier;
+
+}
+
+h1.mainHeader {
+
+  font-size: 100%
 
 }
