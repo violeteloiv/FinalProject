@@ -2,6 +2,14 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pprint
 
+# Try to import simplejson, of not, import json
+try:
+    import simplejson
+except:
+    import json
+
+# We will be using JSON to communicate data to and from the webpage
+
 scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
@@ -16,7 +24,6 @@ class SpreadSheet:
         self.data = None
 
     def setup(self):
-        self.currentSheet.clear()
         self.currentSheet.update_cell(1, 1, "Names:")
         self.currentSheet.update_cell(1, 2, "Current Level:")
         self.currentSheet.update_cell(1, 3, "Health:")
@@ -32,9 +39,17 @@ class SpreadSheet:
         else:
             pp.pprint(self.data)
 
-s_data = SpreadSheet()
-s_data.clear_data()
 
-s_data.setup()
+def create_json_data_file():
+    with open("data.txt", w) as outfile:
+        json.dump(data, outfile)
+
+def read_json_data_file():
+    pass
+
+def send_json_data_file():
+    pass
+
+s_data = SpreadSheet()
 
 s_data.print_data()
