@@ -5,9 +5,9 @@ export default class Player
         this.s = s;
 
         this.pos = this.s.createVector(10, 10);
-        this.size = this.s.createVector(50, 50);
+        this.size = this.s.createVector(32, 64);
 
-        this.speed = 4;
+        this.speed = 3;
     }
 
     update()
@@ -18,7 +18,7 @@ export default class Player
 
     show()
     {
-        this.s.fill(255);
+        this.s.fill(100);
         this.s.noStroke();
         this.s.rect(this.pos.x, this.pos.y, this.size.x, this.size.y);
     }
