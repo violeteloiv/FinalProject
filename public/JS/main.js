@@ -1,10 +1,22 @@
-///--- MAIN CODE ---\\\
-function setup()
-{
-    createCanvas(700, 500);
-}
+///--- IMPORTS ---\\\
+import Player from '/JS/Player.js';
 
-function draw()
+///--- VARIABLES ---\\\
+var player;
+
+///--- MAIN CODE ---\\\
+var p = new p5(function (s)
 {
-    background(0);
-}
+    s.setup = function()
+    {
+        s.createCanvas(700, 500);
+
+        player = new Player(s);
+    }
+
+    s.draw = function()
+    {
+        s.background(0)
+        player.update();
+    };
+});
