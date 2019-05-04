@@ -1,18 +1,18 @@
 export default class Block
 {
-    constructor(s, x, y)
+    constructor(s, x, y, w, h)
     {
         this.s = s;
-        this.size = 32;
+        this.size = this.s.createVector(w, h);
 
-        this.pos = this.s.createVector(x * this.size, y * this.size);
+        this.pos = this.s.createVector(x * 32, y * 32);
     }
 
     show()
     {
         this.s.fill(0);
         this.s.noStroke();
-        this.s.rect(this.pos.x, this.pos.y, this.size, this.size);
+        this.s.rect(this.pos.x, this.pos.y, this.size.x, this.size.y);
     }
 
     update()

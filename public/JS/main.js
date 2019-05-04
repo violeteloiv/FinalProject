@@ -1,3 +1,7 @@
+///--- CONSTANTS ---\\\
+const BLOCKSX = 20;
+const BLOCKSY = 12;
+
 ///--- IMPORTS ---\\\
 import Player from '/JS/Player.js';
 import Block from '/JS/Block.js';
@@ -6,26 +10,23 @@ import Block from '/JS/Block.js';
 var player;
 var blocks = [];
 
-var w = 20 * 32;
-var h = 12 * 32;
+var w = BLOCKSX * 32;
+var h = BLOCKSY * 32;
 
+///--- HELPER FUNCTIONS ---\\\
+function setupWorld(s)
+{
+    s.createCanvas(w, h);
+    player = new Player(s);
+    blocks.push(new Block(s, 0, BLOCKSY - 2, w, 64));
+}
 
 ///--- MAIN CODE ---\\\
 var p = new p5(function (s)
 {
     s.setup = function()
     {
-        s.createCanvas(w, h);
-
-        player = new Player(s);
-
-        for (let x = 0; x <  s.floor(s.width / 32); x++)
-        {
-            for (let y = s.floor(s.height / 32) - 2; y < s.floor(s.height / 32); y++)
-            {
-                blocks.push(new Block(s, x, y));
-            }
-        }
+        setupWorld(s);
     }
 
     s.draw = function()
@@ -34,7 +35,13 @@ var p = new p5(function (s)
         player.update();
 
         blocks.forEach(b => {
-            b.show();
+            b.update();
+
+            if (player.checkCollision(b))
+            {
+                player.vel.y *= -0.4
+                player.pos.y = b.pos.y - player.size.y;
+            }
         });
     };
 });

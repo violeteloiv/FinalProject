@@ -1,3 +1,7 @@
+import {AABB} from '/JS/Collision.js';
+
+var gravity = 0.2;
+
 export default class Player
 {
     constructor(s)
@@ -7,11 +11,13 @@ export default class Player
         this.pos = this.s.createVector(10, 10);
         this.size = this.s.createVector(32, 64);
 
-        this.speed = 3;
+        this.vel = this.s.createVector(2, 0);
     }
 
     update()
     {
+        this.vel.y += gravity;
+
         this.move();
         this.show();
     }
@@ -23,23 +29,28 @@ export default class Player
         this.s.rect(this.pos.x, this.pos.y, this.size.x, this.size.y);
     }
 
+    checkCollision(block) { return AABB(this, block); }
+
     move()
     {
-        if (this.s.keyIsDown(87)) // W Key
-        {
-            this.pos.y -= this.speed;
-        }
+        this.pos.y += this.vel.y;
+
         if (this.s.keyIsDown(65)) // A Key
         {
-            this.pos.x -= this.speed;
-        }
-        if (this.s.keyIsDown(83)) // S Key
-        {
-            this.pos.y += this.speed;
+            this.pos.x -= this.vel.x;
         }
         if (this.s.keyIsDown(68)) // D Key
         {
-            this.pos.x += this.speed;
+            this.pos.x += this.vel.x;
         }
+        if (this.s.keyIsDown(32))
+        {
+            this.jump();
+        }
+    }
+
+    jump()
+    {
+        this.vel.y = -2;
     }
 }
