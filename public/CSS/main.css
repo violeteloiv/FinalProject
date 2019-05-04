@@ -2,6 +2,8 @@ body {
 
   font-family: "Courier New", Courier, moospace;
 
+  display: flex;
+
   padding: 20px;
 
   letter-spacing: 0.15em;

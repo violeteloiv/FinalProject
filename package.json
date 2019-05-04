@@ -11,5 +11,14 @@
   "license": "ISC",
   "dependencies": {
     "serve": "^11.0.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheEpicPenguin13/FinalProject.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheEpicPenguin13/FinalProject/issues"
+  },
+  "homepage": "https://github.com/TheEpicPenguin13/FinalProject#readme"
 }

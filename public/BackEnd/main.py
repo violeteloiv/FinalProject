@@ -20,7 +20,8 @@ pp = pprint.PrettyPrinter()
 class SpreadSheet:
 
     def __init__(self):
-        self.currentSheet = client.open("Data").sheet1
+        self.sheet = client.open("Data")
+        self.currentSheet = self.sheet.sheet1
         self.data = None
 
     def setup(self):
