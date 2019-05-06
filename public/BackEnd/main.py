@@ -20,11 +20,12 @@ pp = pprint.PrettyPrinter()
 class SpreadSheet:
 
     def __init__(self):
-        self.currentSheet = client.open("Data").sheet1
+        self.sheet = client.open("Data")
+        self.currentSheet = self.sheet.sheet1
         self.data = None
 
     def setup(self):
-        self.currentSheet.update_cell(1, 1, "Names:")
+        self.currentSheet.update_cell(1, 1, "Name:")
         self.currentSheet.update_cell(1, 2, "Current Level:")
         self.currentSheet.update_cell(1, 3, "Health:")
 
@@ -40,16 +41,23 @@ class SpreadSheet:
             pp.pprint(self.data)
 
 
-def create_json_data_file():
-    with open("data.txt", w) as outfile:
-        json.dump(data, outfile)
+def write_json_data_file(file, data):
+    if data != None:
+        with open(file, 'w') as outfile:
+            json.dump(data, outfile)
+    else:
+        print("Could not write to json. There was no data.")
 
-def read_json_data_file():
-    pass
-
-def send_json_data_file():
-    pass
+def read_json_data_file(file, data):
+    with open(file, "r") as infile:
+        data = json.load(infile)
 
 s_data = SpreadSheet()
+s_data.setup()
 
-s_data.print_data()
+while True:
+    write_json_data_file("conversation.json", s_data.data)
+
+    s_data.print_data()
+
+    read_json_data_file("conversation.json", s_data.data)
