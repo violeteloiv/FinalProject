@@ -10,13 +10,16 @@ import Block from '/JS/Block.js';
 var player;
 var blocks = [];
 
+var canvas;
+
 var w = BLOCKSX * 32;
 var h = BLOCKSY * 32;
 
 ///--- HELPER FUNCTIONS ---\\\
 function setupWorld(s)
 {
-    s.createCanvas(w, h);
+    canvas = s.createCanvas(w, h);
+    canvas.parent("canvas")
     player = new Player(s);
     blocks.push(new Block(s, 0, BLOCKSY - 2, w, 64));
 }
