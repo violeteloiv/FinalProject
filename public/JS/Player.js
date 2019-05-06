@@ -1,4 +1,5 @@
 import {AABB} from '/JS/Collision.js';
+import {loadData} from '/JS/Loaders.js';
 
 var gravity = 0.2;
 
@@ -12,6 +13,12 @@ export default class Player
         this.size = this.s.createVector(32, 64);
 
         this.vel = this.s.createVector(2, 0);
+
+        loadData('../BackEnd/conversation.json', this);
+
+        this.currentWave = 1;
+        this.level = 0;
+        this.exp = 0;
     }
 
     update()

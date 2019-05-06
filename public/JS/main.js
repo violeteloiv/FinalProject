@@ -10,13 +10,28 @@ import Block from '/JS/Block.js';
 var player;
 var blocks = [];
 
+var canvas;
+
 var w = BLOCKSX * 32;
 var h = BLOCKSY * 32;
 
+// var PythonShell = require('python-shell');
+
 ///--- HELPER FUNCTIONS ---\\\
+
+function runPython(file)
+{
+  PythonShell.run(file, function (err) {
+    if (err) throw err;
+    console.log('finished');
+  });
+}
+
 function setupWorld(s)
 {
-    s.createCanvas(w, h);
+    // runPython("../BackEnd/main.py");
+    canvas = s.createCanvas(w, h);
+    canvas.parent("canvas");
     player = new Player(s);
     blocks.push(new Block(s, 0, BLOCKSY - 2, w, 64));
 }
@@ -39,7 +54,7 @@ var p = new p5(function (s)
 
             if (player.checkCollision(b))
             {
-                player.vel.y *= -0.4
+                player.vel.y *= -0.4;
                 player.pos.y = b.pos.y - player.size.y;
             }
         });
