@@ -29,9 +29,14 @@ function runPython(file)
 
 function setupWorld(s)
 {
+<<<<<<< HEAD
     // runPython("../BackEnd/main.py");
     canvas = s.createCanvas(w, h);
     canvas.parent("canvas");
+=======
+    canvas = s.createCanvas(w, h);
+    canvas.parent("canvas")
+>>>>>>> origin/master
     player = new Player(s);
     blocks.push(new Block(s, 0, BLOCKSY - 2, w, 64));
 }
