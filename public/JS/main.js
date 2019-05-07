@@ -15,13 +15,23 @@ var canvas;
 var w = BLOCKSX * 32;
 var h = BLOCKSY * 32;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 ///--- HELPER FUNCTIONS ---\\\
 
 function setupWorld(s)
 {
+<<<<<<< HEAD
     canvas = s.createCanvas(w, h);
     canvas.parent("canvas");
+=======
+    // runPython("../BackEnd/main.py");
+    canvas = s.createCanvas(w, h);
+    canvas.parent("canvas");
+
+>>>>>>> master
     player = new Player(s);
     blocks.push(new Block(s, 0, BLOCKSY - 2, w, 64));
 }
