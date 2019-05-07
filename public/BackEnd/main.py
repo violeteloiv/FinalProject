@@ -1,7 +1,6 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pprint
-
 # Try to import simplejson, of not, import json
 try:
     import simplejson
@@ -55,9 +54,4 @@ def read_json_data_file(file, data):
 s_data = SpreadSheet()
 s_data.setup()
 
-while True:
-    write_json_data_file("conversation.json", s_data.data)
-
-    s_data.print_data()
-
-    read_json_data_file("conversation.json", s_data.data)
+write_json_data_file("conversation.json", s_data.data)
