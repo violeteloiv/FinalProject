@@ -15,6 +15,11 @@ export default class Block
         this.s.rect(this.pos.x, this.pos.y, this.size.x, this.size.y);
     }
 
+    drawBlockOnGrid()
+    {
+      this.s.rect(this.x * this.size.x, this.y * this.size.y, this.size.x, this.size.y);
+    }
+
     update()
     {
         this.show();
