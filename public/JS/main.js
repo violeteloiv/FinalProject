@@ -46,7 +46,12 @@ var p = new p5(function (s)
             if (player.checkCollision(b))
             {
                 player.vel.y *= -0.4;
+                player.grounded = true;
                 player.pos.y = b.pos.y - player.size.y;
+            }
+            else
+            {
+                player.grounded = false;
             }
         });
     };
