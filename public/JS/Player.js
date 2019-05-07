@@ -19,6 +19,9 @@ export default class Player
         this.currentWave = 1;
         this.level = 0;
         this.exp = 0;
+
+        this.finalSpacePressed = false;
+        this.grounded = false;
     }
 
     update()
@@ -50,14 +53,21 @@ export default class Player
         {
             this.pos.x += this.vel.x;
         }
+
         if (this.s.keyIsDown(32))
         {
-            this.jump();
+            if (this.finalSpacePressed == false && this.grounded)
+                this.jump();
+            this.finalSpacePressed = true;
+        }
+        else
+        {
+            this.finalSpacePressed = false;
         }
     }
 
     jump()
     {
-        this.vel.y = -2;
+        this.vel.y = -50;
     }
 }
