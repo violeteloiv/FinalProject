@@ -14,7 +14,7 @@ export default class Player
 
         this.vel = this.s.createVector(2, 0);
 
-        loadData('../BackEnd/conversation.json', this);
+        //loadData('../BackEnd/conversation.json', this);
 
         this.currentWave = 1;
         this.level = 0;
