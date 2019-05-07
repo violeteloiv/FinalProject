@@ -45,6 +45,7 @@ li {
   display: inline;
 
   margin: 0px 3px;
+
 }
 
 p {
@@ -76,5 +77,16 @@ a:hover, a.on {
   color: #cc3333;
 
   background-color: #ffffff;
+
+}
+
+canvas {
+
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
 
 }
