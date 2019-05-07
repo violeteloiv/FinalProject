@@ -15,28 +15,13 @@ var canvas;
 var w = BLOCKSX * 32;
 var h = BLOCKSY * 32;
 
-// var PythonShell = require('python-shell');
 
 ///--- HELPER FUNCTIONS ---\\\
 
-function runPython(file)
-{
-  PythonShell.run(file, function (err) {
-    if (err) throw err;
-    console.log('finished');
-  });
-}
-
 function setupWorld(s)
 {
-<<<<<<< HEAD
-    // runPython("../BackEnd/main.py");
     canvas = s.createCanvas(w, h);
     canvas.parent("canvas");
-=======
-    canvas = s.createCanvas(w, h);
-    canvas.parent("canvas")
->>>>>>> origin/master
     player = new Player(s);
     blocks.push(new Block(s, 0, BLOCKSY - 2, w, 64));
 }
