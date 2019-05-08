@@ -5,12 +5,15 @@ const BLOCKSY = 12;
 ///--- IMPORTS ---\\\
 import Player from '/JS/Player.js';
 import Block from '/JS/Block.js';
+import {loadLevel} from '/JS/Loaders.js';
 
 ///--- VARIABLES ---\\\
 var player;
 var blocks = [];
 
 var canvas;
+
+var levelData = [];
 
 var w = BLOCKSX * 32;
 var h = BLOCKSY * 32;
@@ -29,6 +32,11 @@ function setupWorld(s)
 ///--- MAIN CODE ---\\\
 var p = new p5(function (s)
 {
+    s.preload = function()
+    {
+      levelData.push(loadLevel(s, '1-1'));
+    }
+
     s.setup = function()
     {
         setupWorld(s);

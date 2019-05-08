@@ -4,3 +4,8 @@ export function loadData(json, player)
 
   console.log(data);
 }
+
+export function loadLevel(s, name)
+{
+  return s.loadJSON(`JS/levels/${name}.json`);
+}
