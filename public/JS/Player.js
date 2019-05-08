@@ -9,7 +9,7 @@ export default class Player
     {
         this.s = s;
 
-        this.pos = this.s.createVector(10, 10);
+        this.pos = this.s.createVector(s.width / 2, s.height / 2);
         this.size = this.s.createVector(32, 64);
 
         this.vel = this.s.createVector(2, 0);
