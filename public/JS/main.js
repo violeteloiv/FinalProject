@@ -21,8 +21,7 @@ function setupWorld(s)
 {
     // runPython("../BackEnd/main.py");
     canvas = s.createCanvas(w, h);
-    canvas.parent("canvas");
-
+    canvas.parent("canvas")
     player = new Player(s);
     blocks.push(new Block(s, 0, BLOCKSY - 2, w, 64));
 }
