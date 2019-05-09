@@ -78,3 +78,9 @@ a:hover, a.on {
   background-color: #ffffff;
 
 }
+
+table {
+
+  border: 4px double #000;
+
+}
