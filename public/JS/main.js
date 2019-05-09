@@ -17,6 +17,6 @@ var p = new p5(function (s)
     s.draw = function()
     {
         s.background(0);
-        tText.show();
+        tb.show();
     }
 });
