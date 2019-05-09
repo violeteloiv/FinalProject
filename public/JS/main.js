@@ -1,65 +1,22 @@
-///--- CONSTANTS ---\\\
-const BLOCKSX = 20;
-const BLOCKSY = 12;
-
-///--- IMPORTS ---\\\
-import Player from '/JS/Player.js';
-import Block from '/JS/Block.js';
-import {loadLevel} from '/JS/Loaders.js';
-
-///--- VARIABLES ---\\\
-var player;
-var blocks = [];
-
 var canvas;
 
-var levelData = [];
+import Button from '/JS/GUI/Button.js';
 
-var w = BLOCKSX * 32;
-var h = BLOCKSY * 32;
+var tb;
 
-///--- HELPER FUNCTIONS ---\\\
-
-function setupWorld(s)
-{
-    // runPython("../BackEnd/main.py");
-    canvas = s.createCanvas(w, h);
-    canvas.parent("canvas")
-    player = new Player(s);
-    blocks.push(new Block(s, 0, BLOCKSY - 2, w, 64));
-}
-
-///--- MAIN CODE ---\\\
 var p = new p5(function (s)
 {
-    s.preload = function()
-    {
-      levelData.push(loadLevel(s, '1-1'));
-    }
-
     s.setup = function()
     {
-        setupWorld(s);
+        canvas = s.createCanvas(500, 500);
+        canvas.parent("canvas");
+
+        tb = new Button(s, 50, 50, "Hello", 50);
     }
 
     s.draw = function()
     {
-        s.background("#99bdf7");
-        player.update();
-
-        blocks.forEach(b => {
-            b.update();
-
-            if (player.checkCollision(b))
-            {
-                player.vel.y *= -0.4;
-                player.grounded = true;
-                player.pos.y = b.pos.y - player.size.y;
-            }
-            else
-            {
-                player.grounded = false;
-            }
-        });
-    };
+        s.background(0);
+        tText.show();
+    }
 });
