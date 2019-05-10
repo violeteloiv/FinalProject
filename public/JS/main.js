@@ -11,7 +11,7 @@ var p = new p5(function (s)
         canvas = s.createCanvas(500, 500);
         canvas.parent("canvas");
 
-        tb = new Button(s, 50, 50, "Hello", 50);
+        tb = new Button(s, 50, 50, "Play", 20);
     }
 
     s.draw = function()
