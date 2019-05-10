@@ -40,12 +40,12 @@ class SpreadSheet:
             pp.pprint(self.data)
 
 
-def write_json_data_file(file, data):
-    if data != None:
-        with open(file, 'w') as outfile:
-            json.dump(data, outfile)
-    else:
-        print("Could not write to json. There was no data.")
+#def write_json_data_file(file, data):
+#    if data != None:
+#        with open(file, 'w') as outfile:
+#            json.dump(data, outfile)
+#    else:
+#        print("Could not write to json. There was no data.")
 
 def read_json_data_file(file, data):
     with open(file, "r") as infile:
@@ -53,5 +53,3 @@ def read_json_data_file(file, data):
 
 s_data = SpreadSheet()
 s_data.setup()
-
-write_json_data_file("conversation.json", s_data.data)
