@@ -14,6 +14,8 @@ export default class Button
         this.text = text;
         this.tSize = tSize;
 
+        this.hasBeenClicked = false;
+
         this.s.textSize(this.tSize);
         tWidth = this.s.textWidth(this.text);
 
@@ -23,6 +25,8 @@ export default class Button
         this.width = tWidth + 20 * 2;
         this.height = (this.tSize * (4 / 3)) + 10;
         tPos = this.s.createVector(this.pos.x + this.width / 2, this.pos.y + (4 / 3) * this.tSize);
+
+        this.callback = undefined;
     }
 
     show()
@@ -45,16 +49,46 @@ export default class Button
 
     update()
     {
+        this.show();
 
+        // MAKE IT SO IT ONLY CLICKS ONCE
+        // CURRENT SET UP ISNT WORKING
+        // ITS FREAKING 10:45PM GIVE ME A BREAK
+        if (this.checkIfClicked())
+        {
+            if (this.hasBeenClicked == false)
+            {
+                if (this.callback != undefined)
+                    this.callback();
+                else
+                    console.log("You have not set a callback. Please set one.");
+
+                this.hasBeenClicked = true;
+            }
+            else
+            {
+                this.hasBeenClicked = false;
+            }
+        }
     }
 
     checkIfClicked()
     {
-        // return (this.onTop() && s.mouseIsPressed);
+        return (this.onTop() && this.s.mouseIsPressed);
     }
 
     onTop()
     {
+        let mouseX = this.s.mouseX;
+        let mouseY = this.s.mouseY;
+        return (mouseX > this.pos.x &&
+                mouseX < this.pos.x + this.width &&
+                mouseY > this.pos.y &&
+                mouseY < this.pos.y + this.height)
+    }
 
+    setCallback(v)
+    {
+        this.callback = v;
     }
 }
