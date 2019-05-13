@@ -1,30 +1,21 @@
-import Text from '/JS/GUI/Text.js';
-
-var tWidth;
-var tPos;
-
 export default class Button
 {
-    constructor(s, x, y, text, tSize)
+    constructor(s, n, x, y, w, h)
     {
         this.s = s;
 
+        this.name = n;
+
         this.pos = this.s.createVector(x, y);
 
-        this.text = text;
-        this.tSize = tSize;
 
         this.hasBeenClicked = false;
-
-        this.s.textSize(this.tSize);
-        tWidth = this.s.textWidth(this.text);
 
         this.fillColor = undefined;
         this.strokeColor = undefined;
 
-        this.width = tWidth + 20 * 2;
-        this.height = (this.tSize * (4 / 3)) + 10;
-        tPos = this.s.createVector(this.pos.x + this.width / 2, this.pos.y + (4 / 3) * this.tSize);
+        this.width = w;
+        this.height = h;
 
         this.callback = undefined;
     }
@@ -35,10 +26,6 @@ export default class Button
         this.s.stroke(this.strokeColor || 0);
         this.s.textSize(this.tSize);
         this.s.rect(this.pos.x, this.pos.y, this.width, this.height);
-        this.s.fill(150);
-        this.s.textAlign(this.s.CENTER);
-        this.s.stroke(150);
-        this.s.text(this.text, tPos.x, tPos.y);
     }
 
     changeColors(c1, c2)

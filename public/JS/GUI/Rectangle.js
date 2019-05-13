@@ -9,7 +9,7 @@ export default class Rectangle
         this.strokeC = sc;
     }
 
-    show()
+    update()
     {
         if (this.fillC)
             this.s.fill(this.fillC);
