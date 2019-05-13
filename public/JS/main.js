@@ -3,6 +3,14 @@ var sceneManager;
 
 import SceneManager from '/JS/Scenes/SceneManager.js';
 
+///--- CALLBACKS ---\\\
+function switchGameCallback()
+{
+    sceneManager.switchScene(1);
+    console.log("ur mom");
+}
+
+///--- MAIN CODE ---\
 var p = new p5(function (s)
 {
     s.setup = function()
@@ -10,6 +18,7 @@ var p = new p5(function (s)
         canvas = s.createCanvas(500, 500);
         canvas.parent("canvas");
         sceneManager = new SceneManager(s);
+        sceneManager.currentScene.getUpdateable("pb").setCallback(switchGameCallback);
     }
 
     s.draw = function()
