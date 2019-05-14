@@ -33,6 +33,10 @@ export default class SceneManager
 
     switchScene(index)
     {
+<<<<<<< HEAD
         this.currentScence = this.scenes[index];
+=======
+        this.currentScene = this.scenes[index];
+>>>>>>> 9b0b310b4323aff5ec6d2e8d4df53dcfdb0f83e7
     }
 }
