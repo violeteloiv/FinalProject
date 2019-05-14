@@ -3,10 +3,7 @@ import Rectangle from '/JS/GUI/Rectangle.js';
 import Button from '/JS/GUI/Button.js';
 import Text from '/JS/GUI/Text.js';
 
-function call()
-{
-    console.log("Callback");
-}
+import {changeToGame} from '/JS/main.js';
 
 export default class MainMenu extends Scene
 {
@@ -30,6 +27,6 @@ export default class MainMenu extends Scene
         let b = this.getUpdateable("pb");
         b.pos = this.s.createVector(this.s.width / 2 - b.width / 2, this.s.height / 1.75);
         this.pushToUpdate(new Text(this.s, "pt", "PLAY", b.pos.x + b.width / 2 - 25, b.pos.y + 32, 20, "#000000"));
-        b.setCallback(call);
+        b.setCallback(changeToGame);
     }
 }

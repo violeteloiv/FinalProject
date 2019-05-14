@@ -1,4 +1,5 @@
 import MainMenu from '/JS/Scenes/MainMenuScene.js';
+import Game from '/JS/Scenes/GameScene.js';
 
 export default class SceneManager
 {
@@ -27,5 +28,11 @@ export default class SceneManager
     setup()
     {
         this.addScene(new MainMenu(this.s));
+        this.addScene(new Game(this.s));
+    }
+
+    switchScene(index)
+    {
+        this.currentScence = this.scenes[index];
     }
 }

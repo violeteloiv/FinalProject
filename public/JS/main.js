@@ -10,6 +10,7 @@ var p = new p5(function (s)
         canvas = s.createCanvas(500, 500);
         canvas.parent("canvas");
         sceneManager = new SceneManager(s);
+        sceneManager.currentScene.getUpdateable("pb").setCallback(changeToGame);
     }
 
     s.draw = function()
@@ -18,3 +19,10 @@ var p = new p5(function (s)
         sceneManager.update();
     }
 });
+
+
+///--- CALLBACKS ---\\\
+export function changeToGame()
+{
+    sceneManager.switchScene(1);
+}
