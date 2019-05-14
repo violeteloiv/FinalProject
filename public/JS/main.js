@@ -7,7 +7,6 @@ import SceneManager from '/JS/Scenes/SceneManager.js';
 function switchGameCallback()
 {
     sceneManager.switchScene(1);
-    console.log("ur mom");
 }
 
 ///--- MAIN CODE ---\
