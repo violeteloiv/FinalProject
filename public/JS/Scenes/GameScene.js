@@ -4,6 +4,9 @@ import Button from '/JS/GUI/Button.js';
 import Text from '/JS/GUI/Text.js';
 
 import Platform from '/JS/Physics/Platform.js';
+import Player from '/JS/Physics/Player.js';
+
+var player;
 
 export default class Game extends Scene
 {
@@ -16,7 +19,10 @@ export default class Game extends Scene
 
     setupGame()
     {
+        player = new Player(this.s);
         this.pushToUpdate(new Rectangle(this.s, 0, 0, this.s.width, this.s.height, "#000000", undefined));
         this.pushToUpdate(new Platform(this.s, 0, 400, this.s.width, this.s.height - 400));
+
+        this.pushToUpdate(player);
     }
 }
