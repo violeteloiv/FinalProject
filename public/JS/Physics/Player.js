@@ -4,15 +4,18 @@ import {AABB} from '/JS/Physics/Collision.js';
 
 export default class Player
 {
-    constructor(s)
+    constructor(s, currentScene)
     {
         this.s = s;
+        this.currentScene = currentScene;
 
         this.vel = this.s.createVector(0, 0);
 
-        this.rect = new Rectangle(this.s, 0, 0, 32, 64);
+        this.rect = new Rectangle(this.s, 0, 0, 32, 64, "#555555", "#555555");
+        this.grounded = false;
 
         this.pos = this.rect.pos;
+        this.size = this.rect.size;
     }
 
     update()
@@ -22,32 +25,50 @@ export default class Player
         this.pos.x += this.vel.x;
         this.pos.y += this.vel.y;
 
-        // this.vel.y += GRAVITY;
+        this.vel.y += GRAVITY;
 
         this.move();
+
+        if (this.checkCollision())
+        {
+            this.vel.y *= -0.4;
+
+            if (this.vel.y < 2 && this.vel.y >= 0)
+            {
+                this.vel.y = 0;
+            }
+
+            this.grounded = true;
+
+            this.pos.y = this.currentScene.getUpdateable("floor").pos.y - this.size.y;
+        }
+        else
+        {
+            this.grounded = false;
+        }
+
     }
 
     move()
     {
-        // NEED TO FIX MOVEMENT
-        // I NEED TO FIGURE STUFF OUT
-
         if (this.s.keyIsDown(65)) // A Key (Move Left)
         {
-            this.vel.x = -5;
-            console.log("Going left");
+            this.pos.x -= 5;
         }
-
 
         if (this.s.keyIsDown(68)) // D Key (Move Right)
         {
-            this.vel.x = 5;
-            console.log("Going right");
+            this.pos.x += 5;
+        }
+
+        if (this.s.keyIsDown(32) && this.grounded) // SpaceKey (JUMP)
+        {
+            this.vel.y = -10;
         }
     }
 
     checkCollision()
     {
-
+        return AABB(this, this.currentScene.getUpdateable("floor"));
     }
 }
