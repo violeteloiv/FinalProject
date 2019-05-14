@@ -25,11 +25,6 @@ export default class MainMenu extends Scene
         // Title Card
         this.s.textAlign(this.s.CENTER);
         this.pushToUpdate(new Text(this.s, "tt", "WAVES", this.s.width / 2, this.s.height / 2 - 100, 50, "#000000"));
-
-<<<<<<< HEAD
-        this.pushToUpdate(new Text(this.s, "st", "It's a good sine", this.s.width / 2, this.s.height / 2 - 50, 20, "#000000"));
-=======
         this.pushToUpdate(new Text(this.s, "st", "It's A Good Sine", this.s.width / 2, this.s.height / 2 - 50, 20, "#000000"));
->>>>>>> master
     }
 }
