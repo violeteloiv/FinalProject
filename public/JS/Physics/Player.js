@@ -4,10 +4,11 @@ import {AABB} from '/JS/Physics/Collision.js';
 
 export default class Player
 {
-    constructor(s, currentScene)
+    constructor(s, currentScene, enemies)
     {
         this.s = s;
         this.currentScene = currentScene;
+        this.enemies = enemies;
 
         this.vel = this.s.createVector(0, 0);
 
@@ -16,6 +17,9 @@ export default class Player
 
         this.pos = this.rect.pos;
         this.size = this.rect.size;
+
+        ///--- PLAYER DATA ---\\\
+        this.health = MAX_HEALTH;
     }
 
     update()
@@ -47,6 +51,7 @@ export default class Player
             this.grounded = false;
         }
 
+        this.checkForDamage();
     }
 
     move()
@@ -70,5 +75,15 @@ export default class Player
     checkCollision()
     {
         return AABB(this, this.currentScene.getUpdateable("floor"));
+    }
+
+    checkForDamage()
+    {
+        this.enemies.forEach(e => {
+            if (AABB(this, e))
+            {
+                this.health -= 1;
+            }
+        });
     }
 }
