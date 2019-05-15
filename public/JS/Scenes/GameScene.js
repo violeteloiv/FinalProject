@@ -19,7 +19,8 @@ export default class Game extends Scene
         super(s);
         this.s = s;
 
-        enemies.push(new Enemy(this.s, this));
+        for (let i = 0; i < 3; i++)
+            enemies.push(new Enemy(this.s, this));
 
         this.setupGame();
     }

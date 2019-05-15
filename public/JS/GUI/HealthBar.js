@@ -28,6 +28,7 @@ export default class HealthBar
             this.rect.fillC = "#ff0000";
         }
 
-        this.rect.size.x = (this.player.health / 100) * this.rect.size.x;
+        if (this.rect.size.x > 0)
+            this.rect.size.x = (this.player.health / 100) * 200;
     }
 }

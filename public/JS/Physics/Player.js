@@ -82,7 +82,7 @@ export default class Player
         this.enemies.forEach(e => {
             if (AABB(this, e))
             {
-                this.health -= 0.01;
+                this.health -= 1;
             }
         });
     }
