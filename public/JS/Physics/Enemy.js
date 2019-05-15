@@ -4,10 +4,11 @@ import {AABB} from '/JS/Physics/Collision.js';
 
 export default class Enemy
 {
-    constructor(s, currentScene)
+    constructor(s, currentScene, player)
     {
         this.s = s;
         this.currentScene = currentScene;
+        this.player = player;
 
         this.vel = this.s.createVector(0, 0);
 
@@ -15,11 +16,19 @@ export default class Enemy
 
         this.pos = this.rect.pos;
         this.size = this.rect.size;
+
+        this.isAttacking = false;
     }
 
     update()
     {
         this.rect.update();
+        this.checkIfPlayerIsNear();
+
+        if (this.isAttacking)
+        {
+            console.log("AHGGGHHHH");
+        }
 
         this.pos.x += this.vel.x;
         this.pos.y += this.vel.y;
@@ -37,6 +46,13 @@ export default class Enemy
         }
 
         this.vel.y += GRAVITY;
+    }
+
+    checkIfPlayerIsNear()
+    {
+        let d = this.s.dist(this.pos.x, this.pos.y, this.player.pos.x, this.player.pos.y);
+
+        this.isAttacking = d < MAX_DIST_TILL_ATK_1;
     }
 
     checkCollision()
