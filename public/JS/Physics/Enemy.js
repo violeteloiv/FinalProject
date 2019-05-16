@@ -1,4 +1,5 @@
 import Rectangle from '/JS/GUI/Rectangle.js';
+import HealthBar from '/JS/GUI/HealthBar.js';
 
 import {AABB} from '/JS/Physics/Collision.js';
 
@@ -18,13 +19,19 @@ export default class Enemy
         this.size = this.rect.size;
 
         this.isAttacking = false;
+        this.checkingCollision = true;
+        this.health = 50;
+
+        this.healthBar = new HealthBar(this.s, this, this.health, 50);
     }
 
     update()
     {
         this.rect.update();
+        this.healthBar.update();
         this.checkIfPlayerIsNear();
 
+        // "Path Finding"
         if (this.isAttacking)
         {
             let xDist = this.pos.x - this.player.pos.x;
@@ -40,19 +47,30 @@ export default class Enemy
         this.pos.x += this.vel.x;
         this.pos.y += this.vel.y;
 
-        if (this.checkCollision())
+        if (this.checkingCollision)
         {
-            this.vel.y *= -0.4;
-
-            if (this.vel.y < 2 && this.vel.y >= 0)
+            if (this.checkCollision())
             {
-                this.vel.y = 0;
-            }
+                this.vel.y *= -0.4;
 
-            this.pos.y = this.currentScene.getUpdateable("floor").pos.y - this.size.y;
+                if (this.vel.y < 2 && this.vel.y >= 0)
+                {
+                    this.vel.y = 0;
+                }
+
+                this.pos.y = this.currentScene.getUpdateable("floor").pos.y - this.size.y;
+            }
         }
 
         this.vel.y += GRAVITY;
+
+        this.healthBar.setPos(this.pos.x - this.healthBar.ml / 2 + this.size.x / 2, this.pos.y - 20);
+
+        if (this.health <= 0)
+        {
+            this.health = 0;
+            this.checkingCollision = false;
+        }
     }
 
     checkIfPlayerIsNear()

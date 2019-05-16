@@ -13,6 +13,10 @@ export default class Player
         this.vel = this.s.createVector(0, 0);
 
         this.rect = new Rectangle(this.s, 0, 0, 32, 64, "#555555", "#555555");
+
+        let handX = this.rect.pos.x + this.rect.size.x;
+        let handY = this.rect.pos.y + this.rect.size.y / 2;
+        this.hand = new Rectangle(this.s, handX, handY, 20, 10, "#555555", "#555555");
         this.grounded = false;
 
         this.pos = this.rect.pos;
@@ -25,9 +29,13 @@ export default class Player
     update()
     {
         this.rect.update();
+        this.hand.update();
 
         this.pos.x += this.vel.x;
         this.pos.y += this.vel.y;
+
+        this.hand.pos.x = this.pos.x + this.size.x;
+        this.hand.pos.y = this.pos.y + this.size.y / 2;
 
         this.vel.y += GRAVITY;
 

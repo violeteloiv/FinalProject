@@ -30,7 +30,7 @@ export default class Game extends Scene
     {
         this.pushToUpdate(new Rectangle(this.s, 0, 0, this.s.width, this.s.height, "#000000", undefined));
         this.pushToUpdate(new Platform(this.s, "floor", 0, 400, this.s.width, this.s.height - 400));
-        this.pushToUpdate(new HealthBar(this.s, player));
+        this.pushToUpdate(new HealthBar(this.s, player, 100, 200));
 
         enemies.forEach(e => {
             this.pushToUpdate(e);
