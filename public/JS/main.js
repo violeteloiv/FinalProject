@@ -2,6 +2,7 @@ var canvas;
 var sceneManager;
 
 import SceneManager from '/JS/Scenes/SceneManager.js';
+import Timer from '/JS/Physics/Timer.js';
 
 ///--- CALLBACKS ---\\\
 function switchGameCallback()

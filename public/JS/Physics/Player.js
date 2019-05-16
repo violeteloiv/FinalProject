@@ -1,6 +1,7 @@
 import Rectangle from '/JS/GUI/Rectangle.js';
 
 import {AABB} from '/JS/Physics/Collision.js';
+import Projectile from '/JS/Physics/Projectile.js';
 
 export default class Player
 {
@@ -60,6 +61,7 @@ export default class Player
         }
 
         this.checkForDamage();
+        this.fire();
     }
 
     move()
@@ -93,5 +95,13 @@ export default class Player
                 this.health -= 1;
             }
         });
+    }
+
+    fire()
+    {
+        if (this.s.mouseIsPressed)
+        {
+            this.currentScene.pushToUpdate(new Projectile(this.s, this));
+        }
     }
 }
