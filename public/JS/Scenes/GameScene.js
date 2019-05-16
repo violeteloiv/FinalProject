@@ -20,7 +20,7 @@ export default class Game extends Scene
         this.s = s;
 
         player = new Player(this.s, this, enemies);
-        for (let i = 0; i < 3; i++)
+        for (let i = 0; i < NUM_ENEMIES_1; i++)
             enemies.push(new Enemy(this.s, this, player));
 
         this.setupGame();

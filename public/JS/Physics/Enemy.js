@@ -12,7 +12,7 @@ export default class Enemy
 
         this.vel = this.s.createVector(0, 0);
 
-        this.rect = new Rectangle(this.s, this.s.floor(this.s.random(0, this.s.width - 32)), 0, 32, 64, "#ff00ff", "#ff00ff");
+        this.rect = new Rectangle(this.s, this.s.floor(this.s.random(this.s.width / 2, this.s.width - 32)), 0, 32, 64, "#ff00ff", "#ff00ff");
 
         this.pos = this.rect.pos;
         this.size = this.rect.size;
@@ -27,7 +27,14 @@ export default class Enemy
 
         if (this.isAttacking)
         {
-            console.log("AHGGGHHHH");
+            let xDist = this.pos.x - this.player.pos.x;
+            let yDist = this.pos.y - this.player.pos.y;
+
+            let hy = this.s.sqrt((xDist * xDist) + (yDist * yDist));
+
+            let xChange = xDist / hy;
+
+            this.pos.x -= xChange * 3;
         }
 
         this.pos.x += this.vel.x;
