@@ -18,6 +18,15 @@ export default class Scene
         this.updateables.push(v);
     }
 
+    pullFromUpdate(n)
+    {
+        let u = this.getUpdateable(n);
+
+        if (u)
+            let i = this.updateables.getIndexOf(u);
+            this.updateables.splice(i, 1);
+    }
+
     getUpdateable(n)
     {
         for (let i = 0; i < this.updateables.length; i++)
