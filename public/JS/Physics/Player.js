@@ -17,7 +17,7 @@ export default class Player
 
         let handX = this.rect.pos.x + this.rect.size.x;
         let handY = this.rect.pos.y + this.rect.size.y / 2;
-        this.hand = new Rectangle(this.s, handX, handY, 20, 10, "#555555", "#555555");
+        this.hand = new Rectangle(this.s, handX, handY - 10, 20, 10, "#cccaa3", "#cccaa3");
         this.grounded = false;
 
         this.pos = this.rect.pos;
@@ -36,7 +36,7 @@ export default class Player
         this.pos.y += this.vel.y;
 
         this.hand.pos.x = this.pos.x + this.size.x;
-        this.hand.pos.y = this.pos.y + this.size.y / 2;
+        this.hand.pos.y = this.pos.y + this.size.y / 2 - 10;
 
         this.vel.y += GRAVITY;
 
@@ -101,7 +101,7 @@ export default class Player
     {
         if (this.s.mouseIsPressed)
         {
-            this.currentScene.pushToUpdate(new Projectile(this.s, this));
+            this.currentScene.addProjectile(new Projectile(this.s, "p" + this.currentScene.projectiles.length, this));
         }
     }
 }
