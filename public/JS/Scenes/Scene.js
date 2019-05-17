@@ -23,8 +23,10 @@ export default class Scene
         let u = this.getUpdateable(n);
 
         if (u)
+        {
             let i = this.updateables.getIndexOf(u);
             this.updateables.splice(i, 1);
+        }
     }
 
     getUpdateable(n)

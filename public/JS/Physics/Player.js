@@ -101,7 +101,7 @@ export default class Player
     {
         if (this.s.mouseIsPressed)
         {
-            this.currentScene.pushToUpdate(new Projectile(this.s, this));
+            this.currentScene.pushToUpdate(new Projectile(this.s, "p", this));
         }
     }
 }
