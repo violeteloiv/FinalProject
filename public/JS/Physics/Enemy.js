@@ -72,7 +72,7 @@ export default class Enemy
             this.checkingCollision = false;
         }
 
-        this.health -= 1;
+        this.health -= 0.1;
     }
 
     checkIfPlayerIsNear()

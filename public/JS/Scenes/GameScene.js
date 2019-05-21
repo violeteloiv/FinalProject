@@ -19,6 +19,8 @@ export default class Game extends Scene
         super(s);
         this.s = s;
 
+        this.projectiles = [];
+
         player = new Player(this.s, this, enemies);
         for (let i = 0; i < NUM_ENEMIES_1; i++)
             enemies.push(new Enemy(this.s, this, player));
@@ -37,5 +39,11 @@ export default class Game extends Scene
         });
 
         this.pushToUpdate(player);
+    }
+
+    addProjectile(p)
+    {
+        this.projectiles.push(p);
+        this.pushToUpdate(p);
     }
 }
