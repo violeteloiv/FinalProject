@@ -2,7 +2,6 @@ var canvas;
 var sceneManager;
 
 import SceneManager from '/JS/Scenes/SceneManager.js';
-import Timer from '/JS/Physics/Timer.js';
 
 ///--- CALLBACKS ---\\\
 function switchGameCallback()
@@ -15,6 +14,7 @@ var p = new p5(function (s)
 {
     s.setup = function()
     {
+        s.frameRate(FRAMERATE);
         canvas = s.createCanvas(500, 500);
         canvas.parent("canvas");
         sceneManager = new SceneManager(s);

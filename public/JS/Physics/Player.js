@@ -3,6 +3,8 @@ import Rectangle from '/JS/GUI/Rectangle.js';
 import {AABB} from '/JS/Physics/Collision.js';
 import Projectile from '/JS/Physics/Projectile.js';
 
+let count = 0;
+
 export default class Player
 {
     constructor(s, currentScene, enemies)
@@ -101,7 +103,8 @@ export default class Player
     {
         if (this.s.mouseIsPressed)
         {
-            this.currentScene.addProjectile(new Projectile(this.s, "p" + this.currentScene.projectiles.length, this));
+            this.currentScene.addProjectile(new Projectile(this.s, "p" + count, this));
+            count++;
         }
     }
 }
