@@ -4,7 +4,7 @@
   "description": "For The Into To Computer Science Final",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "John McAllister / Aidan Metcalfe",
   "license": "ISC",
