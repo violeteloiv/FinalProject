@@ -9,7 +9,6 @@
   "author": "John McAllister / Aidan Metcalfe",
   "license": "ISC",
   "dependencies": {
-    "serve": "^11.0.0"
   },
   "devDependencies": {},
   "repository": {
