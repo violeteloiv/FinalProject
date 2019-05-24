@@ -6,7 +6,7 @@ import HealthBar from '/JS/GUI/HealthBar.js';
 
 import Platform from '/JS/Physics/Platform.js';
 import Player from '/JS/Physics/Player.js';
-import Enemy from '/Js/Physics/Enemy.js';
+import Enemy from '/JS/Physics/Enemy.js';
 
 var player;
 

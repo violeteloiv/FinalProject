@@ -20,7 +20,17 @@ export default class Projectile
         if (this.fired)
         {
             let prevPos = this.s.createVector(this.pos.x, this.pos.y);
-            this.circle.fc = "red";
+            let mousePos = this.s.createVector(this.s.mouseX, this.s.mouseY);
+
+            let distX = mousePos.x - prevPos.x;
+            let distY = mousePos.y - prevPos.y;
+
+            let speed = 5;
+
+            let angle = this.s.atan(distY / distX);
+
+            let changeX = speed * this.s.sin(angle);
+            let changeY = speed * this.s.cos(angle);
         }
     }
 }
