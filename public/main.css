@@ -34,7 +34,7 @@ ul {
 
   border-top: 2px solid #000;
 
-  border-bottom:1px solid #000;
+  border-bottom: 1px solid #000;
 
   text-align: center;
 
@@ -51,7 +51,7 @@ p {
 
   text-align: center;
 
-  width: 600px;
+  width: 700px;
 
   margin: 20px auto 20px auto;
 
@@ -79,8 +79,36 @@ a:hover, a.on {
 
 }
 
-table {
 
-  border: 4px double #000;
+.dropbtn {
+  background-color: #efefef;
+  border: none;
+}
 
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 60px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  color: #ddd;
 }
