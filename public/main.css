@@ -78,3 +78,52 @@ a:hover, a.on {
   background-color: #ffffff;
 
 }
+
+
+.dropli {
+
+  display: inline;
+
+  margin: 0px 3px;
+
+}
+
+
+.dropdown {
+
+  position: relative;
+
+  display: inline-block;
+
+}
+
+
+.dropdown-content {
+
+  display: none;
+
+  position: relative;
+
+  padding:10px;
+
+}
+
+.dropdown:hover .dropdown-content {
+
+  display: block;
+
+}
+
+.dropdown-content a:hover {
+
+  color: #cc3333;
+
+  background-color: #ffffff;
+
+}
+
+.dropdown-content a:hover {
+
+  background-color: #efefef;
+
+}

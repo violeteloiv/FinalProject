@@ -9,7 +9,7 @@ function switchGameCallback()
     sceneManager.switchScene(1);
 }
 
-///--- MAIN CODE ---\
+///--- MAIN CODE ---\\\
 var p = new p5(function (s)
 {
     s.setup = function()
