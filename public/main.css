@@ -75,23 +75,17 @@ a:hover, a.on {
 
   color: #cc3333;
 
-  background-color: #ffffff;
-
 }
 
 
 .dropli {
 
-  display: inline;
-
-  margin: 0px 3px;
+  display: block;;
 
 }
 
 
 .dropdown {
-
-  position: relative;
 
   display: inline-block;
 
@@ -102,15 +96,25 @@ a:hover, a.on {
 
   display: none;
 
-  position: relative;
+  position: fixed;
 
-  padding:10px;
+  top: 180px;
+
+  right: 235px;
+
+  padding: 10px;
+
+  margin: 0px;
+
+  width: 100%;
 
 }
 
 .dropdown:hover .dropdown-content {
 
   display: block;
+
+  background-color: #ffffff;
 
 }
 
@@ -120,10 +124,6 @@ a:hover, a.on {
 
   background-color: #ffffff;
 
-}
-
-.dropdown-content a:hover {
-
-  background-color: #efefef;
+  display: block;
 
 }
