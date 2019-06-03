@@ -103,7 +103,8 @@ export default class Player
     {
         if (this.s.mouseIsPressed)
         {
-            this.currentScene.addProjectile(new Projectile(this.s, "p" + count, this));
+            if (count % 20 == 0)
+                this.currentScene.addProjectile(new Projectile(this.s, "p" + count, this));
             count++;
         }
     }
