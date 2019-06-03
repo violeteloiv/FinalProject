@@ -1,4 +1,5 @@
 import Circle from '/JS/GUI/Circle.js';
+import {AABB} from '/JS/Physics/Collision.js';
 
 export default class Projectile
 {
@@ -12,6 +13,7 @@ export default class Projectile
         this.circle = new Circle(s, player.hand.pos.x, player.hand.pos.y, 5, 5, "#ffff00", "#ffff00");
         this.fired = false;
         this.pos = this.circle.pos;
+        this.currentScene = this.player.currentScene;
 
         this.firstPos = this.pos;
         this.mousePos = this.s.createVector(this.s.mouseX, this.s.mouseY);
@@ -32,5 +34,22 @@ export default class Projectile
 
         this.pos.x += this.vel.x;
         this.pos.y += this.vel.y;
+
+        this.checkCollision();
+
+        this.distFromFire = this.s.dist(this.firstPos.x, this.firstPos.y, this.pos.x, this.pos.y);
+    }
+
+    checkCollision()
+    {
+        this.enemies.forEach(e => {
+            if (AABB(this.circle, e))
+            {
+                e.health -= 1;
+                console.log("collide");
+                // REMOVE PROJECTILE FROM ENGINE
+                let i = this.currentScene.projectiles.indexOf(this);
+            }
+        });
     }
 }
