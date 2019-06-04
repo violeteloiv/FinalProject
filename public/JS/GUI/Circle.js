@@ -4,6 +4,7 @@ export default class Circle
     {
         this.s = s;
         this.pos = this.s.createVector(x, y);
+        this.size = this.s.createVector(w, w);
         this.w = w;
         this.fc = fc;
         this.sc = sc;
