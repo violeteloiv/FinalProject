@@ -9,6 +9,7 @@ export default class Projectile
         this.name = name;
         this.player = player;
         this.enemies = enemies;
+        this.damage = 10;
         this.distFromFire = 0;
         this.circle = new Circle(s, player.hand.pos.x, player.hand.pos.y, 5, 5, "#ffff00", "#ffff00");
         this.fired = false;
@@ -38,6 +39,11 @@ export default class Projectile
         this.checkCollision();
 
         this.distFromFire = this.s.dist(this.firstPos.x, this.firstPos.y, this.pos.x, this.pos.y);
+
+        if (this.distFromFire >= 400)
+        {
+            this.remove();
+        }
     }
 
     checkCollision()
@@ -45,11 +51,15 @@ export default class Projectile
         this.enemies.forEach(e => {
             if (AABB(this.circle, e))
             {
-                e.health -= 1;
-                console.log("collide");
-                // REMOVE PROJECTILE FROM ENGINE
-                let i = this.currentScene.projectiles.indexOf(this);
+                e.health -= this.damage;
+                this.remove();
             }
         });
+    }
+
+    remove()
+    {
+        let i = this.currentScene.updateables.indexOf(this);
+        this.currentScene.updateables.splice(i, 1);
     }
 }

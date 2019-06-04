@@ -18,6 +18,8 @@ export default class Enemy
         this.pos = this.rect.pos;
         this.size = this.rect.size;
 
+        this.count = 0;
+
         this.isAttacking = false;
         this.checkingCollision = true;
         this.health = 50;
@@ -70,6 +72,13 @@ export default class Enemy
         {
             this.health = 0;
             this.checkingCollision = false;
+
+            if (this.count >= 50)
+            {
+                let i = this.currentScene.updateables.indexOf(this);
+                this.currentScene.updateables.splice(i, 1);
+            }
+            this.count++;
         }
     }
 
