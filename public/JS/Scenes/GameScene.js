@@ -7,6 +7,7 @@ import HealthBar from '/JS/GUI/HealthBar.js';
 import Platform from '/JS/Physics/Platform.js';
 import Player from '/JS/Physics/Player.js';
 import Enemy from '/JS/Physics/Enemy.js';
+import Camera from '/JS/Physics/Camera.js';
 
 var player;
 
@@ -21,9 +22,11 @@ export default class Game extends Scene
 
         this.projectiles = [];
 
-        player = new Player(this.s, this, enemies);
+        player = new Player(this.s, "player", this, enemies);
         for (let i = 0; i < NUM_ENEMIES_1; i++)
             enemies.push(new Enemy(this.s, this, player));
+
+        this.camera = new Camera(s, this, player);
 
         this.setupGame();
     }
@@ -39,6 +42,7 @@ export default class Game extends Scene
         });
 
         this.pushToUpdate(player);
+        //this.pushToUpdate(this.camera);
     }
 
     addProjectile(p)
