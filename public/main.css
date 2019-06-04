@@ -99,13 +99,12 @@ a:hover, a.on {
 .dropdown-content {
 
   text-align: center;
-<<<<<<< HEAD
 
   display: none;
 
   position: absolute;
 
-  background-color: #ffffff
+  background-color: #efefef;
 
   z-index: 1;
 
@@ -146,8 +145,6 @@ a:hover, a.on {
 
   color: black;
 
-  padding: 20px 5px;
-
   text-decoration: none;
 
   display: block;
@@ -157,7 +154,7 @@ a:hover, a.on {
 
   color: #cc3333;
 
-  background-color: #efefef;
+  background-color: #ffffff;
 
   display: block;
 
