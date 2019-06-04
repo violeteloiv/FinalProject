@@ -99,6 +99,7 @@ a:hover, a.on {
 .dropdown-content {
 
   text-align: center;
+<<<<<<< HEAD
 
   display: none;
 
@@ -141,11 +142,22 @@ a:hover, a.on {
 
 }
 
+.dropdown-content a {
+
+  color: black;
+
+  padding: 20px 5px;
+
+  text-decoration: none;
+
+  display: block;
+}
+
 .dropdown-content a:hover {
 
   color: #cc3333;
 
-  background-color: #ffffff;
+  background-color: #efefef;
 
   display: block;
 
