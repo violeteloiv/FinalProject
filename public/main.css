@@ -80,12 +80,16 @@ a:hover, a.on {
 
 .dropli {
 
-  display: block;;
+  display: block;
+
+  cursor: pointer;
 
 }
 
 
 .dropdown {
+
+  position: relative;
 
   display: inline-block;
 
@@ -94,19 +98,15 @@ a:hover, a.on {
 
 .dropdown-content {
 
+  text-align: center;
+
   display: none;
 
-  position: fixed;
+  position: absolute;
 
-  top: 180px;
+  background-color: #ffffff
 
-  right: 235px;
-
-  padding: 10px;
-
-  margin: 0px;
-
-  width: 100%;
+  min-width: 100px;
 
 }
 
@@ -118,11 +118,22 @@ a:hover, a.on {
 
 }
 
+.dropdown-content a {
+
+  color: black;
+
+  padding: 20px 5px;
+
+  text-decoration: none;
+
+  display: block;
+}
+
 .dropdown-content a:hover {
 
   color: #cc3333;
 
-  background-color: #ffffff;
+  background-color: #efefef;
 
   display: block;
 
