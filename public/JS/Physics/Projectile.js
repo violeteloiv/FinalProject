@@ -19,8 +19,8 @@ export default class Projectile
         this.firstPos = this.s.createVector(this.pos.x, this.pos.y);
         this.mousePos = this.s.createVector(this.s.mouseX, this.s.mouseY);
 
-        let distX = this.mousePos.x - this.firstPos.x;
-        let distY = this.mousePos.y - this.firstPos.y;
+        let distX = this.firstPos.x - this.mousePos.x;
+        let distY = this.firstPos.y - this.mousePos.y;
 
         let speed = 9;
 
@@ -40,12 +40,19 @@ export default class Projectile
 
         this.distFromFire = this.s.dist(this.firstPos.x, this.firstPos.y, this.pos.x, this.pos.y);
 
+<<<<<<< HEAD
+        if (this.distFromFire >= 500)
+        {
+            this.remove();
+        }
+=======
         if (this.distFromFire >= 400)
         {
             this.remove();
         }
 
         this.vel.y += 0.02;
+>>>>>>> origin/master
     }
 
     checkCollision()
@@ -53,7 +60,11 @@ export default class Projectile
         this.enemies.forEach(e => {
             if (AABB(this.circle, e))
             {
+<<<<<<< HEAD
+                e.health -= 10;
+=======
                 e.health -= this.damage;
+>>>>>>> origin/master
                 this.remove();
             }
         });
@@ -62,6 +73,12 @@ export default class Projectile
         {
             this.remove();
         }
+    }
+
+    remove()
+    {
+        let i = this.currentScene.updateables.indexOf(this);
+        this.currentScene.updateables.splice(i, 1);
     }
 
     remove()

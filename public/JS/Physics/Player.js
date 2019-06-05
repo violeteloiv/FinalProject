@@ -4,12 +4,14 @@ import {AABB} from '/JS/Physics/Collision.js';
 import Projectile from '/JS/Physics/Projectile.js';
 
 let count = 0;
+var gravity = GRAVITY;
 
 export default class Player
 {
-    constructor(s, currentScene, enemies)
+    constructor(s, name, currentScene, enemies)
     {
         this.s = s;
+        this.name = name;
         this.currentScene = currentScene;
         this.enemies = enemies;
 
@@ -40,7 +42,7 @@ export default class Player
         this.hand.pos.x = this.pos.x + this.size.x;
         this.hand.pos.y = this.pos.y + this.size.y / 2 - 10;
 
-        this.vel.y += GRAVITY;
+        this.vel.y += gravity;
 
         this.move();
 
@@ -56,10 +58,12 @@ export default class Player
             this.grounded = true;
 
             this.pos.y = this.currentScene.getUpdateable("floor").pos.y - this.size.y;
+            gravity = 0;
         }
         else
         {
             this.grounded = false;
+            gravity = GRAVITY;
         }
 
         this.checkForDamage();
