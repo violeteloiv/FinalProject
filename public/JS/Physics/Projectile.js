@@ -3,13 +3,13 @@ import {AABB} from '/JS/Physics/Collision.js';
 
 export default class Projectile
 {
-    constructor(s, name, player, enemies)
+    constructor(s, name, player, enemies, damage)
     {
         this.s = s;
         this.name = name;
         this.player = player;
         this.enemies = enemies;
-        this.damage = 10;
+        this.damage = damage;
         this.distFromFire = 0;
         this.circle = new Circle(s, player.hand.pos.x + player.hand.size.x, player.hand.pos.y + player.hand.size.y / 2, 5, 5, "#aaaaaa", "#666666");
         this.fired = false;
@@ -40,19 +40,12 @@ export default class Projectile
 
         this.distFromFire = this.s.dist(this.firstPos.x, this.firstPos.y, this.pos.x, this.pos.y);
 
-<<<<<<< HEAD
-        if (this.distFromFire >= 500)
-        {
-            this.remove();
-        }
-=======
         if (this.distFromFire >= 400)
         {
             this.remove();
         }
 
         this.vel.y += 0.02;
->>>>>>> origin/master
     }
 
     checkCollision()
@@ -60,11 +53,7 @@ export default class Projectile
         this.enemies.forEach(e => {
             if (AABB(this.circle, e))
             {
-<<<<<<< HEAD
-                e.health -= 10;
-=======
                 e.health -= this.damage;
->>>>>>> origin/master
                 this.remove();
             }
         });
