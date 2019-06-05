@@ -11,18 +11,18 @@ export default class Projectile
         this.enemies = enemies;
         this.damage = 10;
         this.distFromFire = 0;
-        this.circle = new Circle(s, player.hand.pos.x, player.hand.pos.y, 5, 5, "#ffff00", "#ffff00");
+        this.circle = new Circle(s, player.hand.pos.x + player.hand.size.x, player.hand.pos.y + player.hand.size.y / 2, 5, 5, "#aaaaaa", "#666666");
         this.fired = false;
         this.pos = this.circle.pos;
         this.currentScene = this.player.currentScene;
 
-        this.firstPos = this.pos;
+        this.firstPos = this.s.createVector(this.pos.x, this.pos.y);
         this.mousePos = this.s.createVector(this.s.mouseX, this.s.mouseY);
 
         let distX = this.mousePos.x - this.firstPos.x;
         let distY = this.mousePos.y - this.firstPos.y;
 
-        let speed = 5;
+        let speed = 9;
 
         let angle = this.s.atan(distY / distX);
 
@@ -44,6 +44,8 @@ export default class Projectile
         {
             this.remove();
         }
+
+        this.vel.y += 0.02;
     }
 
     checkCollision()
@@ -55,6 +57,11 @@ export default class Projectile
                 this.remove();
             }
         });
+
+        if (AABB(this.circle, this.currentScene.getUpdateable("floor")))
+        {
+            this.remove();
+        }
     }
 
     remove()
