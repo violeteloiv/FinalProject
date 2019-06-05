@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.sound.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    <meta charset="utf-8"/>
+
+  </head>
+
+  <body>
+
+    <div id="page">
+
+      <h1 align="center" class="mainHeader"> DRAWING PROGRAM </h1>
+
+      <ul id="navigation">
+
+        <div class="dropdown">
+
+          <li class="dropli">AIDAN </li>
+
+            <div class="dropdown-content">
+
+              <a href="/HTML/aidan.html"> About </a>
+
+              <a href="aidanProjects.html" class="on"> Projects </a>
+
+            </div>
+
+          </div>
+
+        <li> <a href="/../../index.html"> Home </a> </li>
+
+        <li> <a href="/HTML/leaderboard.html"> Leaderboard </a> </li>
+
+        <li> <a href="/HTML/game.html"> Game </a> </li>
+
+        <div class="dropdown">
+
+          <li class="dropli">JOHN </li>
+
+            <div class="dropdown-content">
+
+              <a href="/HTML/john.html"> About </a>
+
+              <a href="#"> Projects </a>
+
+            </div>
+
+          </div>
+
+      </ul>
+
+    <br>
+
+    <table align="center">
+
+      <tr>
+
+        <th>
+
+      		<button type="button" onclick="down()" class="downSize">[<-] DOWN</button>
+
+          <button type="button" onclick="up()" class="upSize"> UP[->]</button>
+
+        </th>
+
+      </tr>
+
+      <tr>
+
+        <th>
+
+          <button type="button" onclick="erase()" class="erase">Eraser</button>
+
+          <button type="button" onclick="clearscreen()" class="clear">Clear</button>
+
+        </th>
+
+      </tr>
+
+      <tr>
+
+        <th>
+
+          <button type="button" onclick="bluepen()" class="blue">Blue</button>
+
+          <button type="button" onclick="redpen()" class="red">Red</button>
+
+          <button type="button" onclick="greenpen()" class="green">Green</button>
+
+          <button type="button" onclick="whitepen()" class="white">White</button>
+
+          <button type="button" onclick="blackpen()" class="black">Black</button>
+
+          <button type="button" onclick="yellowpen()" class="yellow">Yellow</button>
+
+          <button type="button" onclick="orangepen()" class="orange">Orange</button>
+
+          <button type="button" onclick="pickcolor()" class="pickColor">Pick a color</button>
+
+          <button type="button" onclick="pickbg()" class="pickBackground">Pick a bg</button>
+
+        </th>
+
+      </tr>
+
+    </table>
+
+    <br>
+
+    <div id="canvas" align="canter"> </div>
+
+    <script src="../../JS/Aidan/drawingProgram.js" align="center"></script>
+
+  </div>
+
+  </body>
+
+</html>
