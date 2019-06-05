@@ -82,8 +82,7 @@ export default class Enemy
 
             if (this.count >= 50)
             {
-                let i = this.currentScene.updateables.indexOf(this);
-                this.currentScene.updateables.splice(i, 1);
+                this.currentScene.removeEnemy(this);
             }
             this.count++;
         }

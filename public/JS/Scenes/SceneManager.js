@@ -1,5 +1,6 @@
 import MainMenu from '/JS/Scenes/MainMenuScene.js';
 import Game from '/JS/Scenes/GameScene.js';
+import Enemy from '/JS/Physics/Enemy.js';
 
 export default class SceneManager
 {
@@ -17,6 +18,20 @@ export default class SceneManager
         if (this.currentScene != undefined)
         {
             this.currentScene.update();
+        }
+
+        if (this.currentScne == this.scenes[1])
+        {
+            if (this.currentScene.enemies.length < 2)
+            {
+                let num = 2 - this.currentScene.enemies.length;
+
+                for (let i = 0; i < num; i++)
+                {
+                    this.currentScene.enemies.push(new Enemy(this.s, this.currentScene, this.currentScene.getUpdateable("player")));
+                    this.currentScene.updateables.push(new Enemy(this.s, this.currentScene, this.currentScene.getUpdateable("player")));
+                }
+            }
         }
     }
 
