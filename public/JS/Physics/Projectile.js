@@ -9,8 +9,9 @@ export default class Projectile
         this.name = name;
         this.player = player;
         this.enemies = enemies;
+        this.damage = 10;
         this.distFromFire = 0;
-        this.circle = new Circle(s, player.hand.pos.x + player.hand.size.x, player.hand.pos.y + player.hand.size.y / 2, 5, 5, "#aaaaaa", "#777777");
+        this.circle = new Circle(s, player.hand.pos.x + player.hand.size.x, player.hand.pos.y + player.hand.size.y / 2, 5, 5, "#aaaaaa", "#666666");
         this.fired = false;
         this.pos = this.circle.pos;
         this.currentScene = this.player.currentScene;
@@ -21,7 +22,7 @@ export default class Projectile
         let distX = this.firstPos.x - this.mousePos.x;
         let distY = this.firstPos.y - this.mousePos.y;
 
-        let speed = 5;
+        let speed = 9;
 
         let angle = this.s.atan(distY / distX);
 
@@ -39,10 +40,19 @@ export default class Projectile
 
         this.distFromFire = this.s.dist(this.firstPos.x, this.firstPos.y, this.pos.x, this.pos.y);
 
+<<<<<<< HEAD
         if (this.distFromFire >= 500)
         {
             this.remove();
         }
+=======
+        if (this.distFromFire >= 400)
+        {
+            this.remove();
+        }
+
+        this.vel.y += 0.02;
+>>>>>>> origin/master
     }
 
     checkCollision()
@@ -50,10 +60,25 @@ export default class Projectile
         this.enemies.forEach(e => {
             if (AABB(this.circle, e))
             {
+<<<<<<< HEAD
                 e.health -= 10;
+=======
+                e.health -= this.damage;
+>>>>>>> origin/master
                 this.remove();
             }
         });
+
+        if (AABB(this.circle, this.currentScene.getUpdateable("floor")))
+        {
+            this.remove();
+        }
+    }
+
+    remove()
+    {
+        let i = this.currentScene.updateables.indexOf(this);
+        this.currentScene.updateables.splice(i, 1);
     }
 
     remove()
