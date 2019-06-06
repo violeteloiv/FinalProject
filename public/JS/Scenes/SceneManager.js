@@ -1,5 +1,7 @@
 import MainMenu from '/JS/Scenes/MainMenuScene.js';
 import Game from '/JS/Scenes/GameScene.js';
+import GameOver from '/JS/Scenes/GameOverScene.js';
+
 import Enemy from '/JS/Physics/Enemy.js';
 
 export default class SceneManager
@@ -46,6 +48,7 @@ export default class SceneManager
     {
         this.addScene(new MainMenu(this.s));
         this.addScene(new Game(this.s));
+        this.addScene(new GameOver(this.s));
     }
 
     switchScene(index)

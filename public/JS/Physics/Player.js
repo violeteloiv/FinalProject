@@ -4,6 +4,8 @@ import {AABB} from '/JS/Physics/Collision.js';
 import Projectile from '/JS/Physics/Projectile.js';
 
 let count = 0;
+let a = 0;
+let c1 = 0;
 var gravity = GRAVITY;
 
 export default class Player
@@ -26,6 +28,7 @@ export default class Player
 
         this.pos = this.rect.pos;
         this.size = this.rect.size;
+        this.colliding = true;
 
         ///--- PLAYER DATA ---\\\
         this.health = MAX_HEALTH;
@@ -46,7 +49,7 @@ export default class Player
 
         this.move();
 
-        if (this.checkCollision())
+        if (this.checkCollision() && this.colliding)
         {
             this.vel.y *= -0.4;
 
@@ -67,6 +70,23 @@ export default class Player
         }
 
         this.checkForDamage();
+
+        if (this.health <= 0)
+        {
+            this.colliding = false;
+            this.s.fill(0, 0, 0, a)
+            this.s.rect(0, 0, this.s.width, this.s.height);
+            a += 1;
+
+            console.log("doing it");
+        }
+
+        if (this.colliding == false && c1 == 0)
+        {
+            this.vel.y -= 6;
+            c1++;
+        }
+
         this.fire();
     }
 
