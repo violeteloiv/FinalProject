@@ -11,8 +11,6 @@ import Camera from '/JS/Physics/Camera.js';
 
 var player;
 
-var enemies = [];
-
 export default class Game extends Scene
 {
     constructor(s)
@@ -21,10 +19,11 @@ export default class Game extends Scene
         this.s = s;
 
         this.projectiles = [];
+        this.enemies = [];
 
-        player = new Player(this.s, "player", this, enemies);
+        player = new Player(this.s, "player", this, this.enemies);
         for (let i = 0; i < NUM_ENEMIES_1; i++)
-            enemies.push(new Enemy(this.s, this, player));
+            this.enemies.push(new Enemy(this.s, this, player));
 
         this.camera = new Camera(s, this, player);
 
@@ -37,7 +36,7 @@ export default class Game extends Scene
         this.pushToUpdate(new Platform(this.s, "floor", 0, 400, this.s.width, this.s.height - 400));
         this.pushToUpdate(new HealthBar(this.s, player, 100, 200));
 
-        enemies.forEach(e => {
+        this.enemies.forEach(e => {
             this.pushToUpdate(e);
         });
 
@@ -49,5 +48,13 @@ export default class Game extends Scene
     {
         this.projectiles.push(p);
         this.pushToUpdate(p);
+    }
+
+    removeEnemy(e)
+    {
+        let ie = this.enemies.indexOf(e);
+        this.enemies.splice(ie, 1);
+        let iu = this.updateables.indexOf(e);
+        this.updateables.splice(iu, 1);
     }
 }
