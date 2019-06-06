@@ -15,7 +15,7 @@ export default class Enemy
 
         this.vel = this.s.createVector(0, 0);
 
-        this.rect = new Rectangle(this.s, this.s.floor(this.s.random(this.s.width / 2, this.s.width - 32)), 0, 32, 64, "#ff00ff", "#ff00ff");
+        this.rect = new Rectangle(this.s, this.s.floor(this.s.random(this.s.width / 2, this.s.width - 32)), 50, 32, 64, "#ff00ff", "#ff00ff");
 
         this.pos = this.rect.pos;
         this.size = this.rect.size;
@@ -83,6 +83,7 @@ export default class Enemy
             if (this.count >= 50)
             {
                 this.currentScene.removeEnemy(this);
+                this.currentScene.score += 100;
             }
             this.count++;
         }

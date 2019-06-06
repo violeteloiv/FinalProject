@@ -20,18 +20,20 @@ export default class SceneManager
             this.currentScene.update();
         }
 
-        if (this.currentScne == this.scenes[1])
+        if (this.currentScene == this.scenes[1])
         {
             if (this.currentScene.enemies.length < 2)
             {
                 let num = 2 - this.currentScene.enemies.length;
-
                 for (let i = 0; i < num; i++)
                 {
                     this.currentScene.enemies.push(new Enemy(this.s, this.currentScene, this.currentScene.getUpdateable("player")));
                     this.currentScene.updateables.push(new Enemy(this.s, this.currentScene, this.currentScene.getUpdateable("player")));
                 }
             }
+
+            let scoreT = this.currentScene.getUpdateable("scoreT");
+            scoreT.text = "Score: " + this.currentScene.score;
         }
     }
 

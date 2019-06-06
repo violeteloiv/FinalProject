@@ -21,6 +21,10 @@ export default class Game extends Scene
         this.projectiles = [];
         this.enemies = [];
 
+        // s, name, text, x, y, size, fc
+        this.score = 0;
+        this.scoreT = new Text(this.s, "scoreT", "Score: " + this.score, this.s.width / 2 + 100, 30, 24, "#ffffff");
+
         player = new Player(this.s, "player", this, this.enemies);
         for (let i = 0; i < NUM_ENEMIES_1; i++)
             this.enemies.push(new Enemy(this.s, this, player));
@@ -42,6 +46,8 @@ export default class Game extends Scene
 
         this.pushToUpdate(player);
         //this.pushToUpdate(this.camera);
+
+        this.pushToUpdate(this.scoreT);
     }
 
     addProjectile(p)
