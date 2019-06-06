@@ -22,7 +22,7 @@ export default class Projectile
         let distX = this.firstPos.x - this.mousePos.x;
         let distY = this.firstPos.y - this.mousePos.y;
 
-        let speed = 3;
+        let speed = 9;
 
         let angle = this.s.atan(distY / distX);
 
