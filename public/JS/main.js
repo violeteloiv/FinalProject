@@ -9,6 +9,17 @@ function switchGameCallback()
     sceneManager.switchScene(1);
 }
 
+function toLeaderBoardLogin()
+{
+
+}
+
+function toHomePage()
+{
+
+}
+
+
 ///--- MAIN CODE ---\\\
 var p = new p5(function (s)
 {
@@ -27,10 +38,3 @@ var p = new p5(function (s)
         sceneManager.update();
     }
 });
-
-
-///--- CALLBACKS ---\\\
-export function changeToGame()
-{
-    sceneManager.switchScene(1);
-}
