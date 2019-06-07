@@ -11,12 +11,12 @@ function switchGameCallback()
 
 function toLeaderBoardLogin()
 {
-
+    console.log("Going to leaderboard");
 }
 
 function toHomePage()
 {
-
+    console.log("Going to homepage.");
 }
 
 
@@ -30,6 +30,8 @@ var p = new p5(function (s)
         canvas.parent("canvas");
         sceneManager = new SceneManager(s);
         sceneManager.currentScene.getUpdateable("pb").setCallback(switchGameCallback);
+        sceneManager.scenes[1].getUpdateable("player").lB.setCallback(toLeaderBoardLogin);
+        sceneManager.scenes[1].getUpdateable("player").goB.setCallback(toHomePage);
     }
 
     s.draw = function()
