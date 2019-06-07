@@ -6,5 +6,12 @@ export default class GameOver extends Scene
     {
         super(s);
         this.s = s;
+
+        this.setup();
+    }
+
+    setup()
+    {
+
     }
 }
