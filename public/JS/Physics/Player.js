@@ -76,9 +76,22 @@ export default class Player
             this.colliding = false;
             this.s.fill(0, 0, 0, a)
             this.s.rect(0, 0, this.s.width, this.s.height);
-            a += 1;
 
-            console.log("doing it");
+            let sT = this.currentScene.getUpdateable("scoreT");
+
+            let distX = sT.pos.x - this.s.width / 2;
+            let distY = sT.pos.y - this.s.height / 2;
+
+            let angle = this.s.atan(distY / distX);
+
+            let increment = this.s.sqrt((distX * distX) + (distY * distY)) / 100;
+
+            sT.pos.x -= this.s.cos(angle) * increment;
+            sT.pos.y -= this.s.sin(angle) * increment;
+
+            a += 1;
+            if (a > 255)
+                a = 255;
         }
 
         if (this.colliding == false && c1 == 0)
