@@ -51,7 +51,6 @@ export default class Projectile
     checkCollision()
     {
         this.enemies.forEach(e => {
-            console.log(AABB(this.circle, e.rect));
             if (AABB(this.circle, e.rect))
             {
                 e.health -= this.damage;

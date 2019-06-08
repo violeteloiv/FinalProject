@@ -1,4 +1,6 @@
 import Rectangle from '/JS/GUI/Rectangle.js';
+import Text from '/JS/GUI/Text.js';
+import Button from '/JS/GUI/Button.js';
 
 import {AABB} from '/JS/Physics/Collision.js';
 import Projectile from '/JS/Physics/Projectile.js';
@@ -7,6 +9,13 @@ let count = 0;
 let a = 0;
 let c1 = 0;
 var gravity = GRAVITY;
+
+// s, n, x, y, w, h
+var goB;
+var lB;
+
+var goT;
+var lT;
 
 export default class Player
 {
@@ -32,6 +41,12 @@ export default class Player
 
         ///--- PLAYER DATA ---\\\
         this.health = MAX_HEALTH;
+
+        this.goB = new Button(this.s, "goB", this.s.width / 2 - 125 / 2, this.s.height / 2 + 35, 125, 50);
+        this.lB = new Button(this.s, "lB", this.s.width / 2 - 100, this.s.height / 2 + 100, 200, 50);
+
+        this.lT = new Text(this.s, "lT", "Leaderboard", this.lB.pos.x + 100, this.lB.pos.y + 30, 15, "#000000");
+        this.goT = new Text(this.s, "goT", "Exit", this.goB.pos.x + 125 / 2, this.goB.pos.y + 30, 15, "#000000");
     }
 
     update()
@@ -88,6 +103,17 @@ export default class Player
 
             sT.pos.x -= this.s.cos(angle) * increment;
             sT.pos.y -= this.s.sin(angle) * increment;
+
+            this.goB.fillColor = [255, 255, 255, a];
+            this.goB.strokeColor = [0, 0, 0, a];
+            this.goB.update();
+            this.goT.update();
+
+
+            this.lB.fillColor = [255, 255, 255, a];
+            this.lB.strokeColor = [0, 0, 0, a];
+            this.lB.update();
+            this.lT.update();
 
             a += 1;
             if (a > 255)

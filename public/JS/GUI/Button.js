@@ -37,10 +37,6 @@ export default class Button
     update()
     {
         this.show();
-
-        // MAKE IT SO IT ONLY CLICKS ONCE
-        // CURRENT SET UP ISNT WORKING
-        // ITS FREAKING 10:45PM GIVE ME A BREAK
         if (this.checkIfClicked())
         {
             if (this.hasBeenClicked == false)

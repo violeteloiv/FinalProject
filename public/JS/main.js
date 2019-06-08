@@ -9,6 +9,17 @@ function switchGameCallback()
     sceneManager.switchScene(1);
 }
 
+function toLeaderBoardLogin()
+{
+    console.log("Going to leaderboard");
+}
+
+function toHomePage()
+{
+    console.log("Going to homepage.");
+}
+
+
 ///--- MAIN CODE ---\\\
 var p = new p5(function (s)
 {
@@ -19,6 +30,8 @@ var p = new p5(function (s)
         canvas.parent("canvas");
         sceneManager = new SceneManager(s);
         sceneManager.currentScene.getUpdateable("pb").setCallback(switchGameCallback);
+        sceneManager.scenes[1].getUpdateable("player").lB.setCallback(toLeaderBoardLogin);
+        sceneManager.scenes[1].getUpdateable("player").goB.setCallback(toHomePage);
     }
 
     s.draw = function()
@@ -27,10 +40,3 @@ var p = new p5(function (s)
         sceneManager.update();
     }
 });
-
-
-///--- CALLBACKS ---\\\
-export function changeToGame()
-{
-    sceneManager.switchScene(1);
-}
