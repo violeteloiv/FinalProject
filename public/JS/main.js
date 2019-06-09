@@ -12,11 +12,13 @@ function switchGameCallback()
 function toLeaderBoardLogin()
 {
     console.log("Going to leaderboard");
+    window.location.href = "../HTML/submitForm.html";
 }
 
 function toHomePage()
 {
     console.log("Going to homepage.");
+    window.location.href = "../index.html";
 }
 
 
