@@ -1,8 +1,26 @@
 {
+    "amount": "0",
+
     "people": [
         {
-            "initials": "AJ",
-            "score": "200"
+            "initials": "",
+            "score": ""
+        },
+        {
+            "initials": "",
+            "score": ""
+        },
+        {
+            "initials": "",
+            "score": ""
+        },
+        {
+            "initials": "",
+            "score": ""
+        },
+        {
+            "initials": "",
+            "score": ""
         }
     ]
 }
