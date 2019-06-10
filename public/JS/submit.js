@@ -28,4 +28,7 @@ function submitToLeaderboard()
     leaderboard["amount"] = amount;
 
     console.log(leaderboard["people"][0].initials, leaderboard["people"][0].score);
+    saveJSON(leaderboard, "../BackEnd/data.json");
+
+    window.location.href = "../HTML/leaderboard.html";
 }
