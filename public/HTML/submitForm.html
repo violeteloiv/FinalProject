@@ -6,13 +6,19 @@
 
     <title> Final Project -- Subject To Change </title>
 
-    <link rel="stylesheet" href="../main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
 
-    <script src="../JS/submit.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.sound.min.js"></script>
+
+    <link rel="stylesheet" href="../main.css">
 
   </head>
 
   <body>
+
+    <script src="../JS/submit.js"></script>
 
     <div id="page" text-align="center">
 
@@ -22,9 +28,15 @@
 
           <input id="input" type="text"/>
 
-          <button onclick="submitToLeaderboard()"> Submit </button>
+      </h3>
+
+      <h3> Score:&nbsp&nbsp
+
+          <input id="score" type="text"/>
 
       </h3>
+
+      <button onclick="submitToLeaderboard()"> Submit </button>
 
   </body>
 
