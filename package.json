@@ -10,6 +10,7 @@
   "author": "John McAllister / Aidan Metcalfe",
   "license": "ISC",
   "dependencies": {
+    "fs": "0.0.1-security",
     "serve": "^11.0.1"
   },
   "devDependencies": {},
