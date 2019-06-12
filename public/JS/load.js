@@ -3,7 +3,7 @@ var leaderboard;
 
 function preload()
 {
-    leaderboardData = loadJSON("../BackEnd/data.json");
+    leaderboardData = loadJSON("../../../../../Downloads/data.json");
     leaderboard = document.getElementById("leaderboard");
 }
 

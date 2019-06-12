@@ -28,7 +28,12 @@ function submitToLeaderboard()
     leaderboard["amount"] = amount;
 
     console.log(leaderboard["people"][0].initials, leaderboard["people"][0].score);
-    saveJSON(leaderboard, "../BackEnd/data.json");
+    //saveJSON(leaderboard, "data.json");
+
+    //var File, json;
+    //File = new ActiveXObject("Scripting.FileSystemObject");
+    //json = File.GetFile("C:\\Users\\theep\\Downloads\\data.json");
+    //json.Move("C:\\Users\\theep\\Desktop\\FinalProject\\public\\BackEnd");
 
     window.location.href = "../HTML/leaderboard.html";
 }
